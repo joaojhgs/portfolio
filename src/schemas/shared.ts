@@ -1,7 +1,4 @@
-import { SupabaseClient } from '@supabase/supabase-js';
 import { getTranslations } from 'next-intl/server';
-
-import { Database } from './supabase';
 
 export type ReactSerializable =
   | Record<string, unknown>
@@ -22,8 +19,6 @@ export type ServerActionResult<T = undefined> = {
 };
 
 export type ServerActionInjected<T = undefined> = {
-  supabase: SupabaseClient<Database>;
-  supabaseAdmin: SupabaseClient<Database>;
   t: Awaited<ReturnType<typeof getTranslations<'results'>>>;
   values: T;
 };
